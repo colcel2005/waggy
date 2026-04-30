@@ -78,6 +78,7 @@
     <div class="preloader"></div>
   </div>
 
+  <!-- OFF CANVAS CART (lateral) -->
   <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
     <div class="offcanvas-header justify-content-center">
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -89,18 +90,18 @@
           <span class="badge bg-primary rounded-circle pt-2 cart-count">0</span>
         </h4>
         <ul class="list-group mb-3 cart-items">
-          <!-- Dynamic cart items rendered by JS -->
+          <!-- Dynamic items -->
         </ul>
         <div class="d-flex justify-content-between fw-bold mb-3">
           <span>Total (USD)</span>
           <strong class="cart-total">$0.00</strong>
         </div>
-        <div id="paypal-button-container"></div>
-        <button class="w-100 btn btn-primary btn-lg mt-2" type="button" id="checkout-manual">Continue to checkout</button>
+        <a href="cart.html" class="w-100 btn btn-primary btn-lg mt-2" type="button">View Cart / Checkout</a>
       </div>
     </div>
   </div>
 
+  <!-- OFF CANVAS SEARCH -->
   <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch" aria-labelledby="Search">
     <div class="offcanvas-header justify-content-center">
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -118,6 +119,7 @@
     </div>
   </div>
 
+  <!-- HEADER -->
   <header>
     <div class="container py-2">
       <div class="row py-4 pb-0 pb-sm-4 align-items-center">
@@ -203,6 +205,7 @@
     </div>
   </header>
 
+  <!-- BANNER -->
   <section id="banner" style="background: #F9F3EC;">
     <div class="container">
       <div class="swiper main-swiper">
@@ -243,6 +246,7 @@
     </div>
   </section>
 
+  <!-- CATEGORIES -->
   <section id="categories">
     <div class="container my-3 py-5">
       <div class="row my-5">
@@ -255,6 +259,7 @@
     </div>
   </section>
 
+  <!-- CLOTHING CAROUSEL -->
   <section id="clothing" class="my-5 overflow-hidden">
     <div class="container pb-5">
       <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
@@ -263,16 +268,14 @@
       </div>
       <div class="products-carousel swiper">
         <div class="swiper-wrapper">
-          <!-- Product slides with addToCart integration via onclick -->
           <div class="swiper-slide"><div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">New</div><div class="card position-relative"><a href="single-product.html"><img src="images/item1.jpg" class="img-fluid rounded-4" alt="Grey hoodie"></a><div class="card-body p-0"><a href="single-product.html"><h3 class="card-title pt-4 m-0">Grey hoodie</h3></a><div class="card-text"><span class="rating secondary-font"><iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon><iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon><iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon><iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon><iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon> 5.0</span><h3 class="secondary-font text-primary">$18.00</h3><div class="d-flex flex-wrap mt-3"><a href="#" class="btn-cart me-3 px-4 pt-3 pb-3" onclick="addToCart('Grey Hoodie', 18.00, 'DOG-HOODIE-GREY'); return false;"><h5 class="text-uppercase m-0">Add to Cart</h5></a><a href="#" class="btn-wishlist px-4 pt-3"><iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon></a></div></div></div></div></div>
-          <!-- Repite para cada producto... -->
+          <!-- Repite para otros productos si es necesario -->
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Otras secciones similares con los mismos patrones... -->
-
+  <!-- FOOTER -->
   <footer id="footer" class="my-5">
     <div class="container py-5 my-5">
       <div class="row">
@@ -289,8 +292,6 @@
             </div>
           </div>
         </div>
-
-        <!-- QUICK LINKS -->
         <div class="col-md-3">
           <div class="footer-menu">
             <h3>Quick Links</h3>
@@ -302,8 +303,6 @@
             </ul>
           </div>
         </div>
-
-        <!-- POLICIES -->
         <div class="col-md-3">
           <div class="footer-menu">
             <h3>Policies</h3>
@@ -315,8 +314,6 @@
             </ul>
           </div>
         </div>
-
-        <!-- SUPPORT & NEWSLETTER -->
         <div class="col-md-3">
           <div class="footer-menu">
             <h3>Support</h3>
@@ -328,10 +325,8 @@
               <h5>Newsletter</h5>
               <p class="blog-paragraph fs-6">Subscribe to get updates.</p>
               <div class="search-bar border rounded-pill border-dark-subtle px-2">
-                <form id="newsletter-form" class="text-center d-flex align-items-center" 
-                      action="https://hooks.zapier.com/hooks/catch/TU_WEBHOOK_NEWSLETTER/" method="POST">
-                  <input type="email" name="email" class="form-control border-0 bg-transparent" 
-                         placeholder="Your email" required />
+                <form id="newsletter-form" class="text-center d-flex align-items-center" action="https://hooks.zapier.com/hooks/catch/TU_WEBHOOK_NEWSLETTER/" method="POST">
+                  <input type="email" name="email" class="form-control border-0 bg-transparent" placeholder="Your email" required />
                   <button type="submit" class="btn btn-primary rounded-pill ms-2">Subscribe</button>
                 </form>
               </div>
@@ -353,6 +348,7 @@
     </div>
   </div>
 
+  <!-- SCRIPTS -->
   <script src="js/jquery-1.11.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -362,41 +358,74 @@
   <script src="js/script.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-  <!-- PayPal SDK and custom checkout integration -->
+  <!-- PayPal SDK -->
   <script src="https://www.paypal.com/sdk/js?client-id=AUjJqkAXImZ_Y2iPaY_KaDkIqVu1aA3EsbSJG9DxBiMpw0i9X6TkFoPRXD9dvVsOR9OlgGX3cCvBnNNb&currency=USD" data-namespace="paypal_sdk"></script>
+  
   <script>
-    let cart = [];
+    // ---------- CARRITO PERSISTENTE ----------
+    const CART_KEY = 'colcel_cart';
+
+    function getCart() {
+      const stored = localStorage.getItem(CART_KEY);
+      return stored ? JSON.parse(stored) : [];
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    }
+
+    function clearCartStorage() {
+      localStorage.removeItem(CART_KEY);
+    }
+
+    // Inicializar desde localStorage
+    let cart = getCart();
+
     const cartCountElements = document.querySelectorAll('.cart-count, .cart-count-mobile, .cart-count-desktop');
     const cartItemsContainer = document.querySelector('.cart-items');
     const cartTotalElement = document.querySelector('.cart-total');
 
     function updateCartDisplay() {
-      if (!cartItemsContainer || !cartTotalElement) return;
-      cartItemsContainer.innerHTML = '';
-      let total = 0;
-      cart.forEach((item, index) => {
-        total += item.price * item.qty;
-        cartItemsContainer.innerHTML += `
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">${item.name}</h6>
-              <small class="text-body-secondary">Qty: ${item.qty}</small>
-            </div>
-            <span class="text-body-secondary">$${(item.price * item.qty).toFixed(2)}</span>
-          </li>`;
-      });
-      cartTotalElement.textContent = `$${total.toFixed(2)}`;
+      // Actualizar offcanvas
+      if (cartItemsContainer && cartTotalElement) {
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+        cart.forEach(item => {
+          total += item.price * item.qty;
+          cartItemsContainer.innerHTML += `
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div>
+                <h6 class="my-0">${item.name}</h6>
+                <small class="text-body-secondary">Qty: ${item.qty}</small>
+              </div>
+              <span class="text-body-secondary">$${(item.price * item.qty).toFixed(2)}</span>
+            </li>`;
+        });
+        cartTotalElement.textContent = `$${total.toFixed(2)}`;
+      }
       const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
       cartCountElements.forEach(el => el.textContent = totalItems);
     }
 
     function addToCart(name, price, id) {
       const existing = cart.find(i => i.id === id);
-      if (existing) existing.qty++;
-      else cart.push({ name, price, id, qty: 1 });
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({ name, price, id, qty: 1 });
+      }
+      saveCart(cart);
       updateCartDisplay();
     }
 
+    // Al cargar la página, mostrar el carrito actual
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCartDisplay();
+    });
+
+    // PayPal solo en index por ahora (se puede quitar si prefieres que solo esté en cart.html)
+    // Pero lo dejamos si quieres pago rápido desde el offcanvas. 
+    // Lo mantengo, pero no es necesario.
     if (typeof paypal_sdk !== 'undefined') {
       paypal_sdk.Buttons({
         createOrder: function(data, actions) {
@@ -406,38 +435,31 @@
             return;
           }
           return actions.order.create({
-            purchase_units: [{
-              amount: { value: total.toFixed(2) }
-            }]
+            purchase_units: [{ amount: { value: total.toFixed(2) } }]
           });
         },
         onApprove: function(data, actions) {
           return actions.order.capture().then(function(details) {
+            clearCartStorage();
             window.location.href = `thankyou.html?order_id=${data.orderID}`;
-            // Opcional: fetch a tu webhook de Zapier aquí
           });
         }
       }).render('#paypal-button-container');
     }
 
-    // Newsletter form handler
+    // Newsletter
     const newsletterForm = document.getElementById('newsletter-form');
     if (newsletterForm) {
       newsletterForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const formData = new FormData(newsletterForm);
-        fetch(newsletterForm.action, {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => {
-          document.getElementById('newsletter-message').innerHTML = 
-            '<small class="text-success">✅ Subscribed! Check your inbox.</small>';
+        fetch(newsletterForm.action, { method: 'POST', body: formData })
+        .then(() => {
+          document.getElementById('newsletter-message').innerHTML = '<small class="text-success">✅ Subscribed!</small>';
           newsletterForm.reset();
         })
-        .catch(error => {
-          document.getElementById('newsletter-message').innerHTML = 
-            '<small class="text-danger">❌ Error. Please try again.</small>';
+        .catch(() => {
+          document.getElementById('newsletter-message').innerHTML = '<small class="text-danger">❌ Error. Try again.</small>';
         });
       });
     }
