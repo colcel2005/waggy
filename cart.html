@@ -8,6 +8,14 @@
   <link rel="stylesheet" type="text/css" href="css/vendor.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Corrección para los botones del carrito: tamaño compacto */
+    .cart-item-controls .btn {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.2;
+    }
+  </style>
 </head>
 <body>
   <div class="preloader-wrapper"><div class="preloader"></div></div>
@@ -86,7 +94,7 @@
             <div>
               <h6 class="my-0">${item.name}</h6>
               <small>Qty: ${item.qty}</small>
-              <div class="mt-1">
+              <div class="mt-1 cart-item-controls">
                 <button class="btn btn-sm btn-outline-secondary me-1" onclick="updateQty(${index}, -1)">−</button>
                 <button class="btn btn-sm btn-outline-secondary me-1" onclick="updateQty(${index}, 1)">+</button>
                 <button class="btn btn-sm btn-outline-danger" onclick="removeItem(${index})">Remove</button>
@@ -100,7 +108,7 @@
       html += '<div id="paypal-button-container"></div>';
       container.innerHTML = html;
 
-      // Renderizar PayPal si hay SDK y total > 0
+      // PayPal
       if (typeof paypal_sdk !== 'undefined' && total > 0) {
         paypal_sdk.Buttons({
           createOrder: function(data, actions) {
