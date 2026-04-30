@@ -12,11 +12,38 @@
 <body>
   <div class="preloader-wrapper"><div class="preloader"></div></div>
 
+  <!-- OFF CANVAS CART -->
+  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
+    <div class="offcanvas-header justify-content-center">
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Your cart</span>
+          <span class="badge bg-primary rounded-circle pt-2 cart-count">0</span>
+        </h4>
+        <ul class="list-group mb-3 cart-items"></ul>
+        <div class="d-flex justify-content-between fw-bold mb-3">
+          <span>Total (USD)</span>
+          <strong class="cart-total">$0.00</strong>
+        </div>
+        <a href="cart.html" class="w-100 btn btn-primary btn-lg mt-2">View Cart / Checkout</a>
+      </div>
+    </div>
+  </div>
+
   <header>
     <div class="container py-3">
       <div class="row align-items-center">
         <div class="col-6"><a href="index.html" class="fs-3 fw-bold text-primary text-decoration-none">colcel.shop</a></div>
-        <div class="col-6 text-end"><a href="index.html" class="btn btn-outline-dark btn-sm rounded-1">← Back to Shop</a></div>
+        <div class="col-6 text-end d-flex justify-content-end align-items-center gap-3">
+          <a href="index.html" class="btn btn-outline-dark btn-sm rounded-1">← Back to Shop</a>
+          <a href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart" class="position-relative">
+            <iconify-icon icon="mdi:cart" class="fs-4 text-dark"></iconify-icon>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary cart-count">0</span>
+          </a>
+        </div>
       </div>
     </div>
     <div class="container-fluid"><hr class="m-0"></div>
@@ -34,8 +61,7 @@
         <li>Automated order processing for a smooth experience.</li>
         <li>Dedicated customer support ready to help you.</li>
       </ul>
-      <p>We are constantly expanding our catalog to bring you the latest trends and essentials for your furry (or feathered!) friends.</p>
-      <p>Thank you for trusting <strong>colcel.shop</strong>. We treat every pet like family.</p>
+      <p>Thank you for trusting <strong>colcel.shop</strong>.</p>
     </div>
   </main>
 
@@ -56,5 +82,15 @@
   <script src="js/plugins.js"></script>
   <script src="js/script.js"></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script>
+    const CART_KEY = 'colcel_cart';
+    function getCart() { const stored = localStorage.getItem(CART_KEY); return stored ? JSON.parse(stored) : []; }
+    function updateCartCount() {
+      const cart = getCart();
+      const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
+      document.querySelectorAll('.cart-count').forEach(el => el.textContent = totalItems);
+    }
+    document.addEventListener('DOMContentLoaded', updateCartCount);
+  </script>
 </body>
 </html>
