@@ -9,11 +9,26 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    /* Corrección para los botones del carrito: tamaño compacto */
+    /* Corrección definitiva para los botones del carrito */
     .cart-item-controls .btn {
-      padding: 0.25rem 0.5rem;
-      font-size: 0.875rem;
-      line-height: 1.2;
+      padding: 0.25rem 0.5rem !important;
+      font-size: 0.875rem !important;
+      line-height: 1.2 !important;
+      min-width: auto !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      display: inline-block !important;
+    }
+    .cart-item-controls .btn-outline-secondary {
+      color: #6c757d;
+      border-color: #6c757d;
+    }
+    .cart-item-controls .btn-outline-danger {
+      color: #dc3545;
+      border-color: #dc3545;
+    }
+    .cart-item-controls .btn:hover {
+      opacity: 0.8;
     }
   </style>
 </head>
@@ -33,9 +48,7 @@
   <main>
     <div class="container my-5">
       <h1 class="display-5 fw-bold mb-4">Your Cart</h1>
-      <div id="cart-container">
-        <!-- Se llenará dinámicamente -->
-      </div>
+      <div id="cart-container"></div>
     </div>
   </main>
 
@@ -95,7 +108,7 @@
               <h6 class="my-0">${item.name}</h6>
               <small>Qty: ${item.qty}</small>
               <div class="mt-1 cart-item-controls">
-                <button class="btn btn-sm btn-outline-secondary me-1" onclick="updateQty(${index}, -1)">−</button>
+                <button class="btn btn-sm btn-outline-secondary me-1" onclick="updateQty(${index}, -1)">-</button>
                 <button class="btn btn-sm btn-outline-secondary me-1" onclick="updateQty(${index}, 1)">+</button>
                 <button class="btn btn-sm btn-outline-danger" onclick="removeItem(${index})">Remove</button>
               </div>
@@ -108,7 +121,6 @@
       html += '<div id="paypal-button-container"></div>';
       container.innerHTML = html;
 
-      // PayPal
       if (typeof paypal_sdk !== 'undefined' && total > 0) {
         paypal_sdk.Buttons({
           createOrder: function(data, actions) {
